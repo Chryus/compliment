@@ -248,7 +248,7 @@ table {
     page-break-inside: avoid;
   }
   img {
-    max-width: 100% !important;
+    /*max-width: 100% !important;*/
   }
   @page  {
     margin: 2cm .5cm;
@@ -343,7 +343,7 @@ img {
 .img-responsive {
   display: block;
   height: auto;
-  max-width: 100%;
+  /*max-width: 100%;*/
 }
 
 .img-rounded {

@@ -5,10 +5,15 @@ require './lib/compliment'
 module ComplimentSite
   class App < Sinatra::Base
     get '/' do
-      @compliment = Compliment.new
-			erb :compliment
+    	@compliment = Compliment.new
+     		if Compliment.all[-1] == @compliment.message || @compliment.color
+     			@compliment = Compliment.new
+     		else
+     			erb :compliment
+     		end
+     	erb :compliment
     end
-
   end
 end
+
 
