@@ -15,6 +15,7 @@ class Compliment
 		@image = IMAGES.sample
 		@color = COLORS.sample
 		HISTORY << self
+		self.check_duplicates
 	end
 
 	def self.all
@@ -22,11 +23,10 @@ class Compliment
 	end
 	
 	def self.check_duplicates
-		while Compliment.all[-2].color == Compliment.all[-1].color #|| Compliment.all[-2].message == Compliment.all[-1].message
-			Compliment.all[-1].color = COLORS.sample
+		while (Compliment.all[-2].color == Compliment.all[-1].color) || (Compliment.all[-2].message == Compliment.all[-1].message)
+			self = Compliment.new
 			#Compliment.all[-1].message = COMPLIMENTS.sample
 		end
-		return Compliment.all[-1].color
 	end
 
 end

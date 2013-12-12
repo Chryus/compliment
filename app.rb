@@ -6,10 +6,11 @@ module ComplimentSite
   class App < Sinatra::Base
     get '/' do
     	@compliment = Compliment.new
+      erb :compliment
      		if Compliment.all.size == 1
      			erb :compliment
 	     	else
-	     		Compliment.check_duplicates
+	     		@compliment = Compliment.check_duplicates
 	     		erb :compliment
 	     	end
 	   end
