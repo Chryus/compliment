@@ -6,13 +6,13 @@ module ComplimentSite
   class App < Sinatra::Base
     get '/' do
     	@compliment = Compliment.new
-     		if Compliment.all[-1] == @compliment.message || @compliment.color
-     			@compliment = Compliment.new
-     		else
+     		if Compliment.all.size == 1
      			erb :compliment
-     		end
-     	erb :compliment
-    end
+	     	else
+	     		Compliment.check_duplicates
+	     		erb :compliment
+	     	end
+	   end
   end
 end
 
