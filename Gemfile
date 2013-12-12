@@ -1,6 +1,6 @@
 source 'https://rubygems.org'#same as :rubygems
 
-gem 'sinatra', require: 'sinatra/base'
+gem 'sinatra'
 
 group :development do #run these only during development
 	gem "shotgun" #allows us to not have to restart our server
