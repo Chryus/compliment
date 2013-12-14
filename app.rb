@@ -6,15 +6,18 @@ module ComplimentSite
   class App < Sinatra::Application
     enable :sessions
     get '/' do
-      if session[:last_compliment].nil?
+      if session[:last_color].nil? && session[:last_message].nil?
         @compliment = Compliment.new
-        session[:last_compliment] = @compliment.color
+        session[:last_color] = @compliment.color
+        session[:last_message] = @compliment.message
     	else
         @compliment = Compliment.new
-        while session[:last_compliment] == @compliment.color 
+        while session[:last_color] == @compliment.color || session[:last_message] == @compliment.message
           @compliment.color = Compliment::COLORS.sample
+          @compliment.message = Compliment::COMPLIMENTS.sample
         end
-        session[:last_compliment] = @compliment.color 
+        session[:last_color] = @compliment.color
+        session[:last_message] = @compliment.message
 	    end
       erb :compliment
     end
