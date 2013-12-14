@@ -21,11 +21,4 @@ module ComplimentSite
   end
 end
 
-    # way 3, probably not the best
-    #BLAKE = []
-      # probably not the best
-      # way 2 @@
-
-      #way 1
-
 
