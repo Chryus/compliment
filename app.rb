@@ -9,7 +9,7 @@ module ComplimentSite
         @compliment = Compliment.new
         session[:last_color] = @compliment.color
         session[:last_message] = @compliment.message
-    	else
+      else
         @compliment = Compliment.new
         while session[:last_color] == @compliment.color || session[:last_message] == @compliment.message
           @compliment.color = Compliment::COLORS.sample
@@ -17,7 +17,7 @@ module ComplimentSite
         end
         session[:last_color] = @compliment.color
         session[:last_message] = @compliment.message
-	    end
+      end
       erb :compliment
     end
   end

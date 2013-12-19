@@ -14,12 +14,6 @@ class Compliment
 		@image = IMAGES.sample
 		@color = COLORS.sample
 	end
-
-	def self.all
-		HISTORY
-	end
-
-
 end
 
 # comp = Compliment.new
